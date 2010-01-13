@@ -68,7 +68,7 @@ class Diggin_Tool_Framework_Client_Console extends Zend_Tool_Framework_Client_Co
 
     public function handleInteractiveInputRequest(Zend_Tool_Framework_Client_Interactive_InputRequest $inputRequest)
     {
-        fwrite(STDOUT, $inputRequest->getContent() . PHP_EOL . 'zf> ');
+        fwrite(STDOUT, $inputRequest->getContent() . PHP_EOL . $this->_shName . '> ');
         $inputContent = fgets(STDIN);
         return rtrim($inputContent); // remove the return from the end of the string
     }
