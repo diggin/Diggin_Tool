@@ -211,7 +211,7 @@ class diggin
         $storageDirectory = false;
         
         //$storageDirectory = getenv('ZF_STORAGE_DIR');
-        $storageDirectory = getenv(sprintf(self::SH_HOME, $this->_shNameUpper));
+        $storageDirectory = getenv(sprintf(self::SH_STORAGE_DIR, $this->_shNameUpper));
         if ($storageDirectory) {
             $this->_logMessage('Storage directory path found in environment variable ZF_STORAGE_DIR with value ' . $storageDirectory, $returnMessages);
             if (!$mustExist || ($mustExist && file_exists($storageDirectory))) {
@@ -607,7 +607,13 @@ EOS;
 	    //$configOptions['classesToLoad'] = 'Zend_Tool_Project_Provider_Manifest';
 	    
 	    //$console = new Zend_Tool_Framework_Client_Console($configOptions);
-	    $console = new Diggin_Tool_Framework_Client_Console($configOptions);
+        if (extension_loaded('readline')) {
+            //@todo
+            require_once 'DigginX/Tool/Framework/Client/Console.php';
+            $console = new DigginX_Tool_Framework_Client_Console($configOptions);
+        } else {
+            $console = new Diggin_Tool_Framework_Client_Console($configOptions);
+        }
         $console->setShName($this->_shName);
 	    $console->dispatch();
 		return null;
