@@ -449,14 +449,14 @@ EOS;
     {
         $shName = $this->_shName;
         echo 'Zend_Tool & CLI Setup Information' . PHP_EOL
-           . '(available via the command line "zf --info")' 
+           . "(available via the command line \"$shName --info\")" 
            . PHP_EOL;
         
         echo '   * ' . implode(PHP_EOL . '   * ', $this->_messages) . PHP_EOL;
         
         echo PHP_EOL;
         
-        echo 'To change the setup of this tool, run: "zf --setup"';
+        echo "To change the setup of this tool, run: \"$shName --setup\"";
            
         echo PHP_EOL;
 
