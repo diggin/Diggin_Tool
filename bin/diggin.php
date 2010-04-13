@@ -20,13 +20,13 @@ class diggin
      * @var string
      * shell name
      */
-    private $_shName;
+    private $_shName = 'diggin';
 
     /**
      * @var string
      * shell name
      */
-    private $_shNameUpper;
+    private $_shNameUpper = 'Diggin';
 
     /**
      * @var bool
